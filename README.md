@@ -1,2 +1,2 @@
 # Search-Functionality
-Implemented serach functionality using ASP.Net MVC
+Implemented search functionality using ASP.Net MVC

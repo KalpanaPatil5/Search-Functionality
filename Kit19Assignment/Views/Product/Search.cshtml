@@ -1,0 +1,55 @@
+﻿
+@model Kit19Assignment.Models.SearchProduct
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Style.css")">
+</head>
+<body>
+    @using (Html.BeginForm("Search", "Product", FormMethod.Post))
+    {
+        <div>
+            @Html.TextBoxFor(model => model.Product_Name, new { placeholder = "Product Name" })
+            @Html.TextBoxFor(model => model.Size, new { placeholder = "Size" })
+            @Html.TextBoxFor(model => model.Price, new { placeholder = "Price" })
+            @Html.TextBoxFor(model => model.Manufacture_date, new { placeholder = "Manufacture Date" })
+            @Html.TextBoxFor(model => model.Category, new { placeholder = "Category" })
+            <!-- <select name="Conjunction">
+                <option value="AND">AND</option>
+                <option value="OR">OR</option>
+            </select> -->
+            <input type="submit" value="Search" />
+            <a href="/Product/Search">Clear</a>
+        </div>
+    }
+
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Manufacture Date</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <td>@product.Product_ID</td>
+                        <td>@product.Product_Name</td>
+                        <td>@product.Size</td>
+                        <td>@product.Price</td>
+                        <td>@product.Manufacture_date</td>
+                        <td>@product.Category</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</body>
+</html>
+
+
